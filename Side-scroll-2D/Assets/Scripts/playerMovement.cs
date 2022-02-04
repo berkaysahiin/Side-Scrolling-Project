@@ -8,13 +8,13 @@ public class playerMovement : MonoBehaviour
     public Animator _animator;
     private float horizontalMove = 0f;
     public  float horizontlalSpeed; 
-    private bool jump=false; 
-    private bool crouch=false;
-    private bool isMoving = false;
+    public bool jump=false; 
+    public bool crouch=false;
+    public bool isMoving = false;
    
     void Start()
     {
-        
+        _animator = GetComponent<Animator>();
     }
 
     void Update()
