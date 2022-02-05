@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerUppercut : MonoBehaviour
+public class playerTwoside : MonoBehaviour
 {
-    private bool uppercut;
-    public CharacterController2D _cont;
-    public Animator _anim;
+    private bool twoside;
+    public CharacterController2D _contr;
+    public Animator anim;
     private float cooldown;
     public float startCooldown;
     public playerActionManager _pam;
@@ -16,22 +16,20 @@ public class playerUppercut : MonoBehaviour
         cooldown = startCooldown;
     }
 
-   
+    
     void Update()
     {
-        uppercut = false;
+        twoside = false;
         cooldown -= Time.deltaTime;
+       
 
-
-        if(Input.GetKeyDown(KeyCode.X) && _cont.m_Grounded && cooldown <= 0 && _pam.globalCooldown <= 0 )
+        if(Input.GetKeyDown(KeyCode.C) && _contr.m_Grounded && cooldown <= 0  && _pam.globalCooldown <= 0  )
         {
-            uppercut = true;
+            twoside = true;
             cooldown = startCooldown;
             _pam.globalCooldown = _pam.startGlobalCooldown;
             
         }
-        _anim.SetBool("uppercut",uppercut);
-
-        
+        anim.SetBool("twoside",twoside);
     }
 }
