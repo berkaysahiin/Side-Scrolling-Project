@@ -36,18 +36,6 @@ public class playerMovement : MonoBehaviour
         {
             isMoving = false;
         }
-        
-
-        if(crouch == true)
-        {
-            Debug.Log("crouch true");
-        }
-        else if(crouch == false)
-        {
-            Debug.Log("crouch false");
-        }
-
-        Debug.Log(isMoving);
 
         _animator.SetBool("isMoving",isMoving);
         _animator.SetBool("jump",jump);

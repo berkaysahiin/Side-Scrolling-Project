@@ -10,6 +10,9 @@ public class playerUppercut : MonoBehaviour
     private float cooldown;
     public float startCooldown;
     public playerActionManager _pam;
+    public Transform attackPoint;
+    public LayerMask enemyLayers;
+    public float attackRange;
     
     void Start()
     {
@@ -22,16 +25,24 @@ public class playerUppercut : MonoBehaviour
         uppercut = false;
         cooldown -= Time.deltaTime;
 
-
         if(Input.GetKeyDown(KeyCode.X) && _cont.m_Grounded && cooldown <= 0 && _pam.globalCooldown <= 0 )
         {
             uppercut = true;
             cooldown = startCooldown;
             _pam.globalCooldown = _pam.startGlobalCooldown;
-            
+
+           Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange,enemyLayers);
+
+           foreach(Collider2D enemy in hitEnemies)
+           {
+               Debug.Log("1 we hit" + enemy.name);
+           }
         }
         _anim.SetBool("uppercut",uppercut);
+    }
 
-        
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
