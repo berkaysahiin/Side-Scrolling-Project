@@ -5,36 +5,28 @@ using UnityEngine;
 public class playerTwoside : MonoBehaviour
 {
     private bool twoside;
-    public CharacterController2D _contr;
-    public Animator anim;
     private float cooldown;
     public float startCooldown;
-    public playerActionManager _pam;
-    public Transform longPoint1;
-    public Transform longPoint2;
-    public LayerMask enemyLayers;
-    public float pointRadius;
+    public playerAttackManager _pam;
     
     void Start()
     {
         cooldown = startCooldown;
     }
-
     
     void Update()
     {
         twoside = false;
         cooldown -= Time.deltaTime;
-       
 
-        if(Input.GetKeyDown(KeyCode.C) && _contr.m_Grounded && cooldown <= 0  && _pam.globalCooldown <= 0  )
+        if(Input.GetKeyDown(KeyCode.C) && _pam._char.m_Grounded && cooldown <= 0  && _pam.globalCooldown <= 0  )
         {
             twoside = true;
             cooldown = startCooldown;
             _pam.globalCooldown = _pam.startGlobalCooldown;
 
-             Collider2D[] hitEnemies1 = Physics2D.OverlapCircleAll(longPoint1.position, pointRadius,enemyLayers);
-             Collider2D[] hitEnemies2 = Physics2D.OverlapCircleAll(longPoint2.position, pointRadius,enemyLayers);
+             Collider2D[] hitEnemies1 = Physics2D.OverlapCircleAll(_pam.transform2.position, _pam.attackRadius2,_pam.enemyLayers);
+             Collider2D[] hitEnemies2 = Physics2D.OverlapCircleAll(_pam.transform3.position, _pam.attackRadius2,_pam.enemyLayers);
 
            foreach(Collider2D enemy in hitEnemies1)
            {
@@ -48,13 +40,13 @@ public class playerTwoside : MonoBehaviour
             
             
         }
-        anim.SetBool("twoside",twoside);
+        _pam._anim.SetBool("twoside",twoside);
     }
 
      void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(longPoint1.position, pointRadius);
-        Gizmos.DrawWireSphere(longPoint2.position, pointRadius);
+        Gizmos.DrawWireSphere(_pam.transform2.position, _pam.attackRadius2);
+        Gizmos.DrawWireSphere(_pam.transform3.position, _pam.attackRadius2);
 
 
     }
