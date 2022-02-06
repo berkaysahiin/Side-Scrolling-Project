@@ -27,7 +27,7 @@ public class playerDownwardKick : MonoBehaviour
 
             Debug.Log("attack 4");
 
-           Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_pam.transform4.position, _pam.attackRadius ,_pam.enemyLayers);
+           Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_pam.transform4.position, _pam.attackRadius+1 ,_pam.enemyLayers);
 
            foreach(Collider2D enemy in hitEnemies)
            {
@@ -39,7 +39,7 @@ public class playerDownwardKick : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(_pam.transform4.position,_pam.attackRadius);
+        Gizmos.DrawWireSphere(_pam.transform4.position,_pam.attackRadius+1);
     }
 
     
