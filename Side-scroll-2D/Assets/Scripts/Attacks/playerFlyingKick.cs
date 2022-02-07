@@ -12,6 +12,8 @@ public class playerFlyingKick : MonoBehaviour
     public float startDuration;
     public Transform player;
     public float move;
+    public BoxCollider2D _collider;
+    private bool collide;
 
     void Start()
     {
@@ -27,10 +29,11 @@ public class playerFlyingKick : MonoBehaviour
         {
             isFlying = true;
             cooldown = startCooldown;
-            _pam.globalCooldown = _pam.startGlobalCooldown;
-
+            
             StartCoroutine(FlyingKick());
-        }
+            
+            
+        }   
 
         
         Debug.Log(isFlying);
@@ -45,13 +48,31 @@ public class playerFlyingKick : MonoBehaviour
 
         for(duration = startDuration ; duration >= 0 ; duration -= Time.deltaTime)
         {
-            player.position = new Vector3(player.position.x + move*player.localScale.x , player.position.y ,player.position.z);
-            Debug.Log("irmaga gideyrum");    
-            yield return null;
-            
+            if(!collide)
+            {
+                player.position = new Vector3(player.position.x + move*player.localScale.x , player.position.y ,player.position.z);
+                Debug.Log("irmaga gideyrum");    
+                yield return null;
+            }
+            else
+            {
+                break;
+            }
         }
         isFlying = false;
-
+        collide = false;
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+        {       
+            if(isFlying){
+            Debug.Log("collision");
+            collide = true;
+            }
+            
+        }
+    
+
+
+  // end of class        
 }
