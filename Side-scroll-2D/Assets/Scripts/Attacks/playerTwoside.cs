@@ -19,7 +19,7 @@ public class playerTwoside : MonoBehaviour
         twoside = false;
         cooldown -= Time.deltaTime;
 
-        if(Input.GetKeyDown(KeyCode.C) && _pam._char.m_Grounded && cooldown <= 0  && _pam.globalCooldown <= 0  )
+        if(Input.GetKeyDown(KeyCode.C) &&  _pam.isEnableGround && cooldown <= 0 )
         {
             twoside = true;
             cooldown = startCooldown;

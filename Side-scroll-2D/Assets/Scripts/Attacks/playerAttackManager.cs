@@ -15,11 +15,35 @@ public class playerAttackManager : MonoBehaviour
     public LayerMask enemyLayers;
     public float attackRadius;
     public float attackRadius2;
+    public playerFlyingKick _flying;
+    public bool isEnableGround;
+    public bool isEnableAir;
 
 
     void Update()
     {
-        globalCooldown -= Time.deltaTime;   
+        globalCooldown -= Time.deltaTime; 
+
+        if(_char.m_Grounded && globalCooldown <= 0 && !_flying.isFlying)
+        {
+            isEnableGround = true;
+        }
+        else
+        {
+            isEnableGround = false;
+        }
+
+        if(!_char.m_Grounded && globalCooldown <= 0 && !_flying.isFlying)
+        {
+            isEnableAir = true;
+        }
+        else
+        {
+            isEnableAir = false;
+        }
+
+
+
     }
 
     

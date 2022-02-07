@@ -18,7 +18,7 @@ public class playerUppercut : MonoBehaviour
         uppercut = false;
         cooldown -= Time.deltaTime;
 
-        if(Input.GetKeyDown(KeyCode.X) && _pam._char.m_Grounded && cooldown <= 0 && _pam.globalCooldown <= 0 )
+        if(Input.GetKeyDown(KeyCode.X) &&  _pam.isEnableGround && cooldown <= 0 )
         {
             uppercut = true;
             cooldown = startCooldown;

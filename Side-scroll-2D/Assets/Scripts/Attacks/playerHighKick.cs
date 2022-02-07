@@ -20,7 +20,7 @@ public class playerHighKick : MonoBehaviour
         highkick = false;
         cooldown -= Time.deltaTime;
 
-        if(Input.GetKeyDown(KeyCode.C) && !_pam._char.m_Grounded && _pam.globalCooldown <= 0 &&  cooldown <= 0 )
+        if(Input.GetKeyDown(KeyCode.C) &&_pam.isEnableAir &&  cooldown <= 0 )
         {
             highkick = true;
             cooldown = startCooldown;

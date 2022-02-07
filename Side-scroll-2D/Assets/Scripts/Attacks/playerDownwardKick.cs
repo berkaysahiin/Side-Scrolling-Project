@@ -19,7 +19,7 @@ public class playerDownwardKick : MonoBehaviour
         downkick = false;
         cooldown -= Time.deltaTime;
 
-        if(Input.GetKeyDown(KeyCode.X) && !_pam._char.m_Grounded && _pam.globalCooldown <= 0 &&  cooldown <= 0 )
+        if(Input.GetKeyDown(KeyCode.X) && _pam.isEnableAir &&  cooldown <= 0 )
         {
             downkick = true;
             cooldown = startCooldown;

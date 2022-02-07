@@ -11,37 +11,49 @@ public class playerMovement : MonoBehaviour
     public bool jump=false; 
     public bool crouch=false;
     public bool isMoving = false;
+    public playerAttackManager _pam;
    
     void Start()
     {
-        _animator = GetComponent<Animator>();
+        
     }
 
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * horizontlalSpeed;
-
-        if(Input.GetButtonDown("Jump") && _controller.m_Grounded)
-        {
-            jump = true;
-        }
         
-        crouch = Input.GetButton("Crouch");
+            if(!_pam._flying.isFlying)
+            {
+                horizontlalSpeed = 32; 
+            }
+            else
+            {
+                horizontlalSpeed = 0;
+            }
 
-        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) ||Input.GetKey(KeyCode.LeftArrow) )
-        {
-            isMoving = true;
-        }
-        else
-        {
-            isMoving = false;
-        }
+            horizontalMove = Input.GetAxisRaw("Horizontal") * horizontlalSpeed;  
 
-        _animator.SetBool("isMoving",isMoving);
-        _animator.SetBool("jump",jump);
-        _animator.SetBool("grounded",_controller.m_Grounded);
+            if(Input.GetButtonDown("Jump") && _pam.isEnableGround )
+            {
+                jump = true;
+            }
+        
+            crouch = Input.GetButton("Crouch");
+
+            if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) ||Input.GetKey(KeyCode.LeftArrow) )
+            {
+                isMoving = true;
+            }
+            else
+            {
+                isMoving = false;
+            }
+        
+    _pam._anim.SetBool("isMoving",isMoving);
+    _pam._anim.SetBool("jump",jump);
+    _pam._anim.SetBool("grounded",_pam._char.m_Grounded);
 
     }
+
     void FixedUpdate()
     {
         _controller.Move(horizontalMove * Time.fixedDeltaTime,false,jump);

@@ -19,7 +19,7 @@ public class playerRoundKick : MonoBehaviour
         roundkick = false;
         cooldown -= Time.deltaTime;
 
-        if(Input.GetKeyDown(KeyCode.R) && _pam._char.m_Grounded && _pam.globalCooldown <= 0 &&  cooldown <= 0 )
+        if(Input.GetKeyDown(KeyCode.R) &&  _pam.isEnableGround &&  cooldown <= 0 )
         {
             roundkick = true;
             cooldown = startCooldown;
