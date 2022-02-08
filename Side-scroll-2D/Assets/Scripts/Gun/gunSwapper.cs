@@ -10,6 +10,8 @@ public class gunSwapper : MonoBehaviour
     public bool gunOff;
     private float cooldown;
     public float startCooldown;
+    private gunShooter _gunShooter;
+
     
     void Start()
     {
@@ -17,6 +19,7 @@ public class gunSwapper : MonoBehaviour
         _anim = GetComponent<Animator>(); 
         gunEnable = false;  
         cooldown = startCooldown;
+        _gunShooter = this.GetComponent<gunShooter>();
     }
 
     void Update()
@@ -24,13 +27,13 @@ public class gunSwapper : MonoBehaviour
         gunOff = false;
         cooldown -= Time.deltaTime;
 
-        if(Input.GetKeyDown(KeyCode.Q) && !gunEnable && cooldown <= 0  )
+        if(Input.GetKeyDown(KeyCode.Q) && !gunEnable && cooldown <= 0 )
         {
             gunEnable = true;
             cooldown = startCooldown;
         }
         
-        else if(Input.GetKeyDown(KeyCode.Q) && gunEnable && cooldown <= 0 )
+        else if(Input.GetKeyDown(KeyCode.Q) && gunEnable && cooldown <= 0 && !_gunShooter.isShooting  )
         {
             gunEnable = false;
             gunOff = true;

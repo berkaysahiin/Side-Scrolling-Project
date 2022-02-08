@@ -4,19 +4,31 @@ using UnityEngine;
 
 public class gunShooter : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Animator _anim;
+    public bool isShooting; 
+    private playerAttackManager _pam;
+    
+   
     void Start()
     {
-        
+        _pam = this.GetComponent<playerAttackManager>();
+        _anim = this.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        if(Input.GetKey(KeyCode.X))
+        
+        if(Input.GetKey(KeyCode.X) && _pam._gunSwapper.gunEnable)
         {
-            //shoot
+            isShooting = true;
         }
+        else
+        {
+            isShooting = false;
+        }
+        
+        _anim.SetBool("isShooting",isShooting);
         
     }
 }
