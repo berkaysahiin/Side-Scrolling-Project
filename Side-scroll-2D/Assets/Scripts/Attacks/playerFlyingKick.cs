@@ -25,7 +25,7 @@ public class playerFlyingKick : MonoBehaviour
     {
         cooldown -= Time.deltaTime;
 
-        if(Input.GetKeyDown(KeyCode.V) && _pam._char.m_Grounded && _pam.globalCooldown <= 0 && cooldown <= 0 && !isFlying )
+        if(Input.GetKeyDown(KeyCode.V) && _pam.isEnableGround )
         {
             isFlying = true;
             cooldown = startCooldown;

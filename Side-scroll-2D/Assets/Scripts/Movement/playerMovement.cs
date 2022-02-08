@@ -32,7 +32,7 @@ public class playerMovement : MonoBehaviour
 
             horizontalMove = Input.GetAxisRaw("Horizontal") * horizontlalSpeed;  
 
-            if(Input.GetButtonDown("Jump") && _pam.isEnableGround )
+            if(Input.GetButtonDown("Jump") && _pam.globalCooldown <= 0 && ! _pam._flying.isFlying )
             {
                 jump = true;
             }

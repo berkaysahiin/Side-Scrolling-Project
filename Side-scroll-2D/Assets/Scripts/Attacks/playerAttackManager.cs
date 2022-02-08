@@ -18,13 +18,14 @@ public class playerAttackManager : MonoBehaviour
     public playerFlyingKick _flying;
     public bool isEnableGround;
     public bool isEnableAir;
+    public gunSwapper _gunSwapper;
 
 
     void Update()
     {
         globalCooldown -= Time.deltaTime; 
 
-        if(_char.m_Grounded && globalCooldown <= 0 && !_flying.isFlying)
+        if(_char.m_Grounded && globalCooldown <= 0 && !_flying.isFlying && !_gunSwapper.gunEnable)
         {
             isEnableGround = true;
         }
@@ -33,7 +34,7 @@ public class playerAttackManager : MonoBehaviour
             isEnableGround = false;
         }
 
-        if(!_char.m_Grounded && globalCooldown <= 0 && !_flying.isFlying)
+        if(!_char.m_Grounded && globalCooldown <= 0 && !_flying.isFlying && !_gunSwapper.gunEnable)
         {
             isEnableAir = true;
         }
