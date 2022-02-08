@@ -20,7 +20,6 @@ public class playerAttackManager : MonoBehaviour
     public bool isEnableAir;
     public gunSwapper _gunSwapper;
 
-
     void Update()
     {
         globalCooldown -= Time.deltaTime; 
