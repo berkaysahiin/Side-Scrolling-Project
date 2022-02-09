@@ -23,6 +23,7 @@ public class playerUppercut : MonoBehaviour
             uppercut = true;
             cooldown = startCooldown;
             _pam.globalCooldown = _pam.startGlobalCooldown;
+            Debug.Log("uppercut is now true");
 
            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_pam.transform1.position, _pam.attackRadius ,_pam.enemyLayers);
 

@@ -21,10 +21,10 @@ public class gunShooter : MonoBehaviour
     void Update()
     {
         
-        if(Input.GetKey(KeyCode.X) && _pam._gunSwapper.gunEnable )
+        if(Input.GetKey(KeyCode.X) && _pam._gunSwapper.gunEnable && _pam.globalCooldown <= 0 )
         {
             isShooting = true;
-            StartCoroutine(Shoot());
+            
         }
         else
         {
@@ -33,6 +33,14 @@ public class gunShooter : MonoBehaviour
         
         _anim.SetBool("isShooting",isShooting);
         
+    }
+    
+    void FixedUpdate()
+    {
+        if(isShooting)
+        {
+            StartCoroutine(Shoot());
+        }
     }
     
     IEnumerator Shoot()

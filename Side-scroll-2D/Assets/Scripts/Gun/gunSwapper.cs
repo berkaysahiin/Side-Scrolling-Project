@@ -27,17 +27,22 @@ public class gunSwapper : MonoBehaviour
         gunOff = false;
         cooldown -= Time.deltaTime;
 
-        if(Input.GetKeyDown(KeyCode.Q) && !gunEnable && cooldown <= 0 )
+        if(Input.GetKeyDown(KeyCode.Q) && !gunEnable &&  _pam.globalCooldown <= 0 && cooldown <= 0)
         {
             gunEnable = true;
             cooldown = startCooldown;
+            _pam.globalCooldown = _pam.startGlobalCooldown ;
+            Debug.Log(_pam.globalCooldown);
         }
         
-        else if(Input.GetKeyDown(KeyCode.Q) && gunEnable && cooldown <= 0 && !_gunShooter.isShooting  )
+        else if(Input.GetKeyDown(KeyCode.Q) && gunEnable && !_gunShooter.isShooting && cooldown <= 0  )
         {
             gunEnable = false;
             gunOff = true;
             cooldown = startCooldown;
+            Debug.Log(_pam.globalCooldown);
+
+
         }
         
      _anim.SetBool("gunEnable",gunEnable);

@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
         
         _rigidbody2d.velocity = transform.right * speed * direction;
 
-        Destroy(gameObject , 3f );
+        Destroy(gameObject , 1f );
     }
 
     void Update()
@@ -53,6 +53,7 @@ private void OnCollisionEnter2D(Collision2D other)
 private void OnTriggerEnter2D(Collider2D other)
 {
     Destroy(this.gameObject);
+    hit = true;
 }
 
 

@@ -1776,11 +1776,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFlying: 0
-  startCooldown: 1
+  startCooldown: 2.5
   _pam: {fileID: 1731210100}
   startDuration: 1.4
   player: {fileID: 1731210094}
-  move: 0.14
+  move: 10
   _collider: {fileID: 1731210096}
 --- !u!114 &1731210105
 MonoBehaviour:

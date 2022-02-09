@@ -50,7 +50,7 @@ public class playerFlyingKick : MonoBehaviour
         {
             if(!collide)
             {
-                player.position = new Vector3(player.position.x + move*player.localScale.x , player.position.y ,player.position.z);
+                player.position = new Vector3(player.position.x + move*player.localScale.x*Time.deltaTime , player.position.y ,player.position.z);
                 Debug.Log("irmaga gideyrum");    
                 yield return null;
             }
