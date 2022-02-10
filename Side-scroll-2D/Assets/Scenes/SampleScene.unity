@@ -316,7 +316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282503091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.527, y: -0.081, z: 0}
+  m_LocalPosition: {x: 1.148, y: -0.101, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1731210094}
@@ -1444,6 +1444,7 @@ GameObject:
   - component: {fileID: 1731210104}
   - component: {fileID: 1731210105}
   - component: {fileID: 1731210106}
+  - component: {fileID: 1731210107}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -1720,7 +1721,9 @@ MonoBehaviour:
   _flying: {fileID: 1731210104}
   isEnableGround: 0
   isEnableAir: 0
+  isEnableAirGround: 0
   _gunSwapper: {fileID: 1731210105}
+  _playerPowerShot: {fileID: 1731210107}
 --- !u!114 &1731210101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1811,6 +1814,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isShooting: 0
   bulletPrefab: {fileID: 3396780000376023222, guid: 54d4f994193c1da488d47fbf58a2c550, type: 3}
+--- !u!114 &1731210107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731210089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b953733eac48343b6c91b50f41baa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerShot: 0
+  _powershot: {fileID: 2818138382374856395, guid: 91e0172bd38e3bc49861f41e8e9e3948, type: 3}
+  startCooldown: 2
+  waitSeconds: 0.6
 --- !u!1 &1850109288
 GameObject:
   m_ObjectHideFlags: 0

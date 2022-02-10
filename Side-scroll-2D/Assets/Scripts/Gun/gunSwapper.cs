@@ -27,7 +27,7 @@ public class gunSwapper : MonoBehaviour
         gunOff = false;
         cooldown -= Time.deltaTime;
 
-        if(Input.GetKeyDown(KeyCode.Q) && !gunEnable &&  _pam.globalCooldown <= 0 && cooldown <= 0)
+        if(Input.GetKeyDown(KeyCode.Q) && !gunEnable &&  _pam.globalCooldown <= 0 && cooldown <= 0 && !_pam._flying.isFlying && !_pam._playerPowerShot.powerShot)
         {
             gunEnable = true;
             cooldown = startCooldown;
@@ -35,7 +35,7 @@ public class gunSwapper : MonoBehaviour
             Debug.Log(_pam.globalCooldown);
         }
         
-        else if(Input.GetKeyDown(KeyCode.Q) && gunEnable && !_gunShooter.isShooting && cooldown <= 0  )
+        else if(Input.GetKeyDown(KeyCode.Q) && gunEnable && !_gunShooter.isShooting && cooldown <= 0 )
         {
             gunEnable = false;
             gunOff = true;

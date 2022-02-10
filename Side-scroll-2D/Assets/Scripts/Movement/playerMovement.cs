@@ -21,7 +21,7 @@ public class playerMovement : MonoBehaviour
     void Update()
     {
         
-            if(!_pam._flying.isFlying)
+            if(!_pam._flying.isFlying && !_pam._playerPowerShot.powerShot)
             {
                 horizontlalSpeed = 32; 
             }
@@ -32,7 +32,7 @@ public class playerMovement : MonoBehaviour
 
             horizontalMove = Input.GetAxisRaw("Horizontal") * horizontlalSpeed;  
 
-            if(Input.GetButtonDown("Jump") && _pam.globalCooldown <= 0 && ! _pam._flying.isFlying )
+            if(Input.GetButtonDown("Jump") && _pam.globalCooldown <= 0 && ! _pam._flying.isFlying && !_pam._playerPowerShot.powerShot )
             {
                 jump = true;
             }
