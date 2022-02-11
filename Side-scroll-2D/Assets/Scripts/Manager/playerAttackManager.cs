@@ -22,6 +22,7 @@ public class playerAttackManager : MonoBehaviour
     public gunSwapper _gunSwapper;
     public playerPowerShot _playerPowerShot;
     public playerBasicShot _playerBasicShot;
+    public playerNormalShot _playerNormalShot;
 
     void Update()
     {

@@ -38,7 +38,7 @@ public class playerPowerShot : MonoBehaviour
     IEnumerator PowerShot()
     {
         yield return new WaitForSecondsRealtime(waitSeconds);
-        Instantiate(_powershot, _pam.transform2.position , _pam.transform2.rotation );
+        Instantiate(_powershot, _pam.transform4.position , _pam.transform4.rotation );
         powerShot = false;
     }
     

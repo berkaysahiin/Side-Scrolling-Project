@@ -316,7 +316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282503091}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.519, y: -0.146, z: 0}
+  m_LocalPosition: {x: 0.72, y: -0.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1731210094}
@@ -1353,7 +1353,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403693711}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.237, y: -0.355, z: 0}
+  m_LocalPosition: {x: 1.02, y: 0.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1731210094}
@@ -1385,6 +1385,7 @@ GameObject:
   - component: {fileID: 1731210106}
   - component: {fileID: 1731210107}
   - component: {fileID: 1731210096}
+  - component: {fileID: 1731210108}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -1564,8 +1565,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicShot: 0
   _basicShotPrefab: {fileID: 4515952397393114471, guid: bdffcbc3ae497b440901b4df9b864133, type: 3}
-  startCooldown: 1
-  waitSeconds: 0.6
+  startCooldown: 0.5
+  waitSeconds: 0.3
 --- !u!95 &1731210097
 Animator:
   serializedVersion: 3
@@ -1645,6 +1646,7 @@ MonoBehaviour:
   _gunSwapper: {fileID: 1731210105}
   _playerPowerShot: {fileID: 1731210107}
   _playerBasicShot: {fileID: 1731210096}
+  _playerNormalShot: {fileID: 1731210108}
 --- !u!114 &1731210101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1750,7 +1752,23 @@ MonoBehaviour:
   powerShot: 0
   _powershot: {fileID: 2818138382374856395, guid: 91e0172bd38e3bc49861f41e8e9e3948, type: 3}
   startCooldown: 2
-  waitSeconds: 0.6
+  waitSeconds: 0.65
+--- !u!114 &1731210108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731210089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 564f0c42ec21b764e80fb72bb36e8bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalShot: 0
+  _normalShot: {fileID: 7747309614617362969, guid: 04079af0f88a29a4e8a6399ba389967e, type: 3}
+  startCooldown: 1
+  waitSeconds: 0.5
 --- !u!1 &1933287003
 GameObject:
   m_ObjectHideFlags: 0
