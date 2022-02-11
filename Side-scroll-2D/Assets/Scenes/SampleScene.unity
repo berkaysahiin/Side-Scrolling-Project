@@ -1386,6 +1386,7 @@ GameObject:
   - component: {fileID: 1731210107}
   - component: {fileID: 1731210096}
   - component: {fileID: 1731210108}
+  - component: {fileID: 1731210109}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -1565,7 +1566,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicShot: 0
   _basicShotPrefab: {fileID: 4515952397393114471, guid: bdffcbc3ae497b440901b4df9b864133, type: 3}
-  startCooldown: 0.5
+  sharedCooldown: 0
+  startSharedCooldown: 1
   waitSeconds: 0.3
 --- !u!95 &1731210097
 Animator:
@@ -1647,6 +1649,7 @@ MonoBehaviour:
   _playerPowerShot: {fileID: 1731210107}
   _playerBasicShot: {fileID: 1731210096}
   _playerNormalShot: {fileID: 1731210108}
+  _normalShotToFront: {fileID: 1731210109}
 --- !u!114 &1731210101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1769,6 +1772,22 @@ MonoBehaviour:
   _normalShot: {fileID: 7747309614617362969, guid: 04079af0f88a29a4e8a6399ba389967e, type: 3}
   startCooldown: 1
   waitSeconds: 0.5
+--- !u!114 &1731210109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731210089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c6cfff5ad764e48b41f1e0f493ea5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitSeconds: 0.4
+  isNormalShotToFront: 0
+  _normalShotToFront: {fileID: 4515952397393114471, guid: bdffcbc3ae497b440901b4df9b864133, type: 3}
+  _playerBasicShot: {fileID: 1731210096}
 --- !u!1 &1933287003
 GameObject:
   m_ObjectHideFlags: 0

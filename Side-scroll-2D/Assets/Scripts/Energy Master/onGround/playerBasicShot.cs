@@ -7,24 +7,24 @@ public class playerBasicShot : MonoBehaviour
    private playerAttackManager _pam;
    public bool basicShot;
    public GameObject _basicShotPrefab;
-   private float cooldown;
-   public float startCooldown;
+   public float sharedCooldown;
+   public float startSharedCooldown;
    [SerializeField]private float waitSeconds;
 
    void Start()
    {
        _pam = GetComponent<playerAttackManager>();
-       cooldown = startCooldown;
+       sharedCooldown = startSharedCooldown;
        
    }
 
    void Update()
    {
-       cooldown -= Time.deltaTime;
+       sharedCooldown -= Time.deltaTime;
 
-       if(Input.GetKeyDown(KeyCode.E) && _pam.isEnableGround && cooldown <= 0)
+       if(Input.GetKeyDown(KeyCode.E) && _pam.isEnableGround && sharedCooldown <= 0)
        {
-           cooldown = startCooldown;
+           sharedCooldown = startSharedCooldown;
            basicShot = true;
            StartCoroutine(BasicShot());
        }
