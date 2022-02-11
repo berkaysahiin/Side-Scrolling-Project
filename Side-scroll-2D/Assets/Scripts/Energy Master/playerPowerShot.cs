@@ -39,10 +39,7 @@ public class playerPowerShot : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(waitSeconds);
         Instantiate(_powershot, _pam.transform2.position , _pam.transform2.rotation );
-        Debug.Log("power shot");
         powerShot = false;
-        
-        
     }
     
 }

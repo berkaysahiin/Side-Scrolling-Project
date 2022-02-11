@@ -34,6 +34,11 @@ public class powerShot : MonoBehaviour
 private void OnTriggerEnter2D(Collider2D other)
 {
     Destroy(this.gameObject);
+
+     if(other.gameObject.layer == 6 )
+    {
+        Debug.Log("damage done");
+    }
     
 }
 

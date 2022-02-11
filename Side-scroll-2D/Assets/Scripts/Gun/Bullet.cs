@@ -54,6 +54,10 @@ private void OnTriggerEnter2D(Collider2D other)
 {
     Destroy(this.gameObject);
     hit = true;
+    if(other.gameObject.layer == 6 )
+    {
+        Debug.Log("damage done");
+    }
 }
 
 
