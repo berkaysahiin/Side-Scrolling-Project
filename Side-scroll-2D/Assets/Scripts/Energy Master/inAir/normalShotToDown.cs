@@ -9,6 +9,7 @@ public class normalShotToDown : MonoBehaviour
   public bool isNormalShotToDown;
   [SerializeField]private GameObject _normalShotToDown;
   [SerializeField]private playerBasicShot _playerBasicShot;
+  [SerializeField]private Transform _transform;
 
   private void Start() {
       _pam = GetComponent<playerAttackManager>();
@@ -21,12 +22,14 @@ public class normalShotToDown : MonoBehaviour
           _playerBasicShot.sharedCooldown = _playerBasicShot.startSharedCooldown;
           Debug.Log("split to down");
       }
+
+      _pam._anim.SetBool("isNormalShotToDown",isNormalShotToDown);
   }
 
   IEnumerator NormalShotToDown()
   {
       yield return new WaitForSecondsRealtime(waitSeconds);
-      Instantiate(_normalShotToDown ,  _pam.transform2.position , _pam.transform2.rotation );
+      Instantiate(_normalShotToDown ,  _transform.position , _transform.rotation );
       isNormalShotToDown = false;
   }
   

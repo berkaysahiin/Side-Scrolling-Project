@@ -6,7 +6,8 @@ public class basicShotDown : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float direction;
-    private float speed = 15;
+    private float speedX = 9;
+    private float speedY = -6.5f;
     private CharacterController2D _char;
     void Start()
     {
@@ -23,8 +24,16 @@ public class basicShotDown : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
 
-            rb.velocity = transform.right * speed * direction;
-            transform.Rotate(direction,0,-35);
+            rb.velocity = new Vector2(direction * speedX,speedY);
+
+            if(direction == 1)
+            {
+                transform.Rotate(0,0, -35);
+            }
+            else
+            {
+                transform.Rotate(0,0,235);
+            }
         
         
 
