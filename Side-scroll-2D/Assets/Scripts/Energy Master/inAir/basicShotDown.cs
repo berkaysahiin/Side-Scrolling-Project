@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class basicShot : MonoBehaviour
+public class basicShotDown : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float direction;
@@ -23,9 +23,8 @@ public class basicShot : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
 
-        rb.velocity = transform.right * speed * direction;
-
-         transform.localScale = new Vector3(transform.localScale.x * direction, transform.localScale.y, transform.localScale.z);
+            rb.velocity = transform.right * speed * direction;
+            transform.Rotate(direction,0,-35);
         
         
 

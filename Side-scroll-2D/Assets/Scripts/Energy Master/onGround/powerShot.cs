@@ -27,6 +27,8 @@ public class powerShot : MonoBehaviour
 
         rb.velocity = transform.right * speed * direction;
 
+         transform.localScale = new Vector3(transform.localScale.x * direction, transform.localScale.y, transform.localScale.z);
+
         Destroy(gameObject , 3f );
 
     }

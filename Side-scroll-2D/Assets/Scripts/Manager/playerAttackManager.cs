@@ -24,6 +24,7 @@ public class playerAttackManager : MonoBehaviour
     public playerBasicShot _playerBasicShot;
     public playerNormalShot _playerNormalShot;
     public normalShotToFront _normalShotToFront;
+    public normalShotToDown _normalShotToDown;
 
     void Update()
     {
@@ -40,7 +41,7 @@ public class playerAttackManager : MonoBehaviour
         }
 
         if(!_char.m_Grounded && globalCooldown <= 0 && !_flying.isFlying && !_gunSwapper.gunEnable
-         && !_playerPowerShot.powerShot  && !_playerBasicShot.basicShot && !_normalShotToFront.isNormalShotToFront)
+         && !_playerPowerShot.powerShot  && !_playerBasicShot.basicShot && !_normalShotToFront.isNormalShotToFront && !_normalShotToDown.isNormalShotToDown)
         {
             isEnableAir = true;
         }

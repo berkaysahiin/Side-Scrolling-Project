@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 4515952397393114522}
   - component: {fileID: 4515952397393114469}
   - component: {fileID: 4515952397393114468}
-  - component: {fileID: 1925178499}
   m_Layer: 0
-  m_Name: basicShot
+  m_Name: basicShot 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4515952397393114471}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.0083226655, y: 0.002624126, z: -0.3006943, w: 0.9536807}
   m_LocalPosition: {x: 4.755, y: 2.142, z: 0}
   m_LocalScale: {x: 2, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1, y: 0, z: -35}
 --- !u!212 &4515952397393114523
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -142,16 +141,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &1925178499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4515952397393114471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 166b442f9c780d6488c16431dcc09bb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pam: {fileID: 0}
