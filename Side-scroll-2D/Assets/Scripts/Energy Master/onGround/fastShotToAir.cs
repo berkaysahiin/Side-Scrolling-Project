@@ -7,6 +7,7 @@ public class fastShotToAir : MonoBehaviour
     private playerAttackManager _pam; 
     [SerializeField]private float waitSeconds;
     public bool isFastShotToAir;
+    private Quaternion _qua;
     [SerializeField]private GameObject _fastShotToAir;
     [SerializeField]private playerBasicShot _playerBasicShot;
     [SerializeField]private Transform transformFastShotToAir;
@@ -18,6 +19,15 @@ public class fastShotToAir : MonoBehaviour
     
     void Update()
     {
+        if(_pam._char.m_FacingRight)
+        {
+            _qua = Quaternion.Euler(0,0,35);
+        }
+        else
+        {
+            _qua = Quaternion.Euler(0,0,-35);
+        }
+
         if(Input.GetKeyDown(KeyCode.E) && Input.GetKey(KeyCode.UpArrow) && _pam.isEnableGround  && _playerBasicShot.sharedCooldown <= 0)
         {
             isFastShotToAir = true;
@@ -32,7 +42,7 @@ public class fastShotToAir : MonoBehaviour
     {
         
         yield return new WaitForSecondsRealtime(waitSeconds);
-        Instantiate(_fastShotToAir, transformFastShotToAir.position, Quaternion.Euler(0,0,35));
+        Instantiate(_fastShotToAir, transformFastShotToAir.position, _qua);
         isFastShotToAir = false;
     }
 }

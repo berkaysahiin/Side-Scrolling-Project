@@ -7,8 +7,8 @@ public class playerNormalShot : MonoBehaviour
     private playerAttackManager _pam;
     public bool normalShot;
     public GameObject _normalShot;
-    private float cooldown;
-    [SerializeField]private float startCooldown;
+    public float cooldown;
+    [SerializeField]public float startCooldown;
     [SerializeField]private float waitSeconds;
     private void Start() 
     {

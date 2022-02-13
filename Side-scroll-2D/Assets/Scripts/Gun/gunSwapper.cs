@@ -29,7 +29,8 @@ public class gunSwapper : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Q) && !gunEnable &&  _pam.globalCooldown <= 0 && cooldown <= 0 &&
          !_pam._flying.isFlying && !_pam._playerPowerShot.powerShot && !_pam._playerBasicShot.basicShot 
-         && !_pam._playerNormalShot.normalShot && !_pam._normalShotToFront.isNormalShotToFront && !_pam._normalShotToDown.isNormalShotToDown && !_pam._fastShotToAir.isFastShotToAir )
+         && !_pam._playerNormalShot.normalShot && !_pam._normalShotToFront.isNormalShotToFront && !_pam._normalShotToDown.isNormalShotToDown && !_pam._fastShotToAir.isFastShotToAir
+         && !_pam._normalShotToAir.isNormalShotToAir )
         {
             gunEnable = true;
             cooldown = startCooldown;
