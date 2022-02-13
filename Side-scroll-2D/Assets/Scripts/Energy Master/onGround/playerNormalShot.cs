@@ -20,7 +20,7 @@ public class playerNormalShot : MonoBehaviour
     {
         cooldown -= Time.deltaTime;
 
-        if(Input.GetKeyDown(KeyCode.S) && _pam.isEnableGround && cooldown <= 0)
+        if(Input.GetKeyDown(KeyCode.S) && _pam.isEnableGround && cooldown <= 0 && !Input.GetKey(KeyCode.UpArrow))
         {
             cooldown = startCooldown;
             normalShot = true;

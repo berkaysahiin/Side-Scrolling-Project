@@ -997,7 +997,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878758643}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.41, y: -0.606, z: 0}
+  m_LocalPosition: {x: 0.31, y: -0.562, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1731210094}
@@ -2102,7 +2102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitSeconds: 0.3
   isNormalShotToDown: 0
-  _normalShotToDown: {fileID: 4515952397393114471, guid: 7d0b713febbe5d74ebdb5adee9f5df05, type: 3}
+  _normalShotToDown: {fileID: 4515952397393114471, guid: bdffcbc3ae497b440901b4df9b864133, type: 3}
   _playerBasicShot: {fileID: 1731210096}
   _transform: {fileID: 878758644}
 --- !u!114 &1731210111

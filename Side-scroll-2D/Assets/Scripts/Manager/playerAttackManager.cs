@@ -33,7 +33,7 @@ public class playerAttackManager : MonoBehaviour
         globalCooldown -= Time.deltaTime; 
 
         if(_char.m_Grounded && globalCooldown <= 0 && !_flying.isFlying && !_gunSwapper.gunEnable && !_playerPowerShot.powerShot
-            && !_playerBasicShot.basicShot && !_fastShotToAir.isFastShotToAir && !_normalShotToAir.isNormalShotToAir)
+            && !_playerBasicShot.basicShot && !_fastShotToAir.isFastShotToAir && !_normalShotToAir.isNormalShotToAir && !_playerNormalShot.normalShot)
         {
             isEnableGround = true;
         }

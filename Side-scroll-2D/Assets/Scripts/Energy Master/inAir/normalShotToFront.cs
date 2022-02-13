@@ -20,7 +20,7 @@ public class normalShotToFront : MonoBehaviour
     void Update()
     {
           
-        if(Input.GetKeyDown(KeyCode.E) && _pam.isEnableAir && _playerBasicShot.sharedCooldown <= 0)
+        if(Input.GetKeyDown(KeyCode.E) && _pam.isEnableAir && _playerBasicShot.sharedCooldown <= 0 &&  !Input.GetKey(KeyCode.DownArrow))
         {
             isNormalShotToFront = true;
             StartCoroutine(NormalShotToFront());

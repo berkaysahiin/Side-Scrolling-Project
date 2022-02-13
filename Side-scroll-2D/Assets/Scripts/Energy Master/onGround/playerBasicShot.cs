@@ -22,7 +22,7 @@ public class playerBasicShot : MonoBehaviour
    {
        sharedCooldown -= Time.deltaTime;
 
-       if(Input.GetKeyDown(KeyCode.E) && _pam.isEnableGround && sharedCooldown <= 0)
+       if(Input.GetKeyDown(KeyCode.E) && _pam.isEnableGround && sharedCooldown <= 0 && !Input.GetKey(KeyCode.UpArrow)) 
        {
            sharedCooldown = startSharedCooldown;
            basicShot = true;
