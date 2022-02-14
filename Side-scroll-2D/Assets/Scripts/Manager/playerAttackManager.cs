@@ -20,20 +20,17 @@ public class playerAttackManager : MonoBehaviour
     public bool isEnableAir;
     public bool isEnableAirGround;
     public gunSwapper _gunSwapper;
-    public playerPowerShot _playerPowerShot;
-    public playerBasicShot _playerBasicShot;
-    public playerNormalShot _playerNormalShot;
-    public normalShotToFront _normalShotToFront;
-    public normalShotToDown _normalShotToDown;
-    public fastShotToAir _fastShotToAir;
-    public RealNormalShotToAir _normalShotToAir;
+    private energyObserver _energyObserver;
+
+    private void Start() {
+        _energyObserver = GetComponent<energyObserver>();
+    }
 
     void Update()
     {
         globalCooldown -= Time.deltaTime; 
 
-        if(_char.m_Grounded && globalCooldown <= 0 && !_flying.isFlying && !_gunSwapper.gunEnable && !_playerPowerShot.powerShot
-            && !_playerBasicShot.basicShot && !_fastShotToAir.isFastShotToAir && !_normalShotToAir.isNormalShotToAir && !_playerNormalShot.normalShot)
+        if(_char.m_Grounded && globalCooldown <= 0 && !_flying.isFlying && !_gunSwapper.gunEnable && !_energyObserver.onGroundSpell)
         {
             isEnableGround = true;
         }
@@ -43,7 +40,7 @@ public class playerAttackManager : MonoBehaviour
         }
 
         if(!_char.m_Grounded && globalCooldown <= 0 && !_flying.isFlying && !_gunSwapper.gunEnable
-         && !_playerPowerShot.powerShot  && !_playerBasicShot.basicShot && !_normalShotToFront.isNormalShotToFront && !_normalShotToDown.isNormalShotToDown)
+         && !_energyObserver.inAirSpell)
         {
             isEnableAir = true;
         }
@@ -52,7 +49,8 @@ public class playerAttackManager : MonoBehaviour
             isEnableAir = false;
         }
 
-        if(globalCooldown <= 0 && !_flying.isFlying && !_gunSwapper.gunEnable && !_playerPowerShot.powerShot)
+        if(globalCooldown <= 0 && !_flying.isFlying && !_gunSwapper.gunEnable && !_energyObserver.onGroundSpell && 
+        !_energyObserver.inAirSpell)
         {
             isEnableAirGround = true;
         }

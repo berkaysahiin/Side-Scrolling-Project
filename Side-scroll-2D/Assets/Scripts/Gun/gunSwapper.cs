@@ -11,7 +11,7 @@ public class gunSwapper : MonoBehaviour
     private float cooldown;
     public float startCooldown;
     private gunShooter _gunShooter;
-
+    private energyObserver _energyObserver;
     
     void Start()
     {
@@ -20,6 +20,7 @@ public class gunSwapper : MonoBehaviour
         gunEnable = false;  
         cooldown = startCooldown;
         _gunShooter = this.GetComponent<gunShooter>();
+        _energyObserver = GetComponent<energyObserver>();
     }
 
     void Update()
@@ -28,9 +29,7 @@ public class gunSwapper : MonoBehaviour
         cooldown -= Time.deltaTime;
 
         if(Input.GetKeyDown(KeyCode.Q) && !gunEnable &&  _pam.globalCooldown <= 0 && cooldown <= 0 &&
-         !_pam._flying.isFlying && !_pam._playerPowerShot.powerShot && !_pam._playerBasicShot.basicShot 
-         && !_pam._playerNormalShot.normalShot && !_pam._normalShotToFront.isNormalShotToFront && !_pam._normalShotToDown.isNormalShotToDown && !_pam._fastShotToAir.isFastShotToAir
-         && !_pam._normalShotToAir.isNormalShotToAir )
+         !_pam._flying.isFlying && !_energyObserver.onGroundSpell && !_energyObserver.inAirSpell)
         {
             gunEnable = true;
             cooldown = startCooldown;
