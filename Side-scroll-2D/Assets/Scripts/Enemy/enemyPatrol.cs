@@ -44,7 +44,7 @@ public class enemyPatrol : MonoBehaviour
             Flip();
         }
     }
-    void Flip()
+    public void Flip()
     {   
         mustPatrol = false;
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y);
