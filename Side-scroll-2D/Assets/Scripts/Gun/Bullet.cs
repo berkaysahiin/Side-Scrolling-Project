@@ -34,6 +34,7 @@ public class Bullet : MonoBehaviour
         _anim = this.GetComponent<Animator>();
         
         _rigidbody2d.velocity = transform.right * speed * direction;
+        transform.localScale = new Vector3(transform.localScale.x * direction, transform.localScale.y , transform.localScale.z );
 
         Destroy(gameObject , 1f );
     }

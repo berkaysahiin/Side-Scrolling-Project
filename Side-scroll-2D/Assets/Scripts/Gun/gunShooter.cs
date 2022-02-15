@@ -7,12 +7,20 @@ public class gunShooter : MonoBehaviour
     private Animator _anim;
     public bool isShooting; 
     private playerAttackManager _pam;
+    [SerializeField] private Transform _gunSpawm;
     public GameObject bulletPrefab;
     private GameObject clone;
+    [SerializeField] private ParticleSystem _particle; 
+
+    private void Awake() 
+    {
+        
+    }
     
    
     void Start()
-    {
+    {   
+
         _pam = this.GetComponent<playerAttackManager>();
         _anim = this.GetComponent<Animator>();
     }
@@ -24,11 +32,13 @@ public class gunShooter : MonoBehaviour
         if(Input.GetKey(KeyCode.X) && _pam._gunSwapper.gunEnable && _pam.globalCooldown <= 0 )
         {
             isShooting = true;
+            _particle.Play();
             
         }
         else
         {
             isShooting = false;
+            _particle.Stop();
         }
         
         _anim.SetBool("isShooting",isShooting);
@@ -45,7 +55,7 @@ public class gunShooter : MonoBehaviour
     
     IEnumerator Shoot()
     {
-        clone = Instantiate(bulletPrefab, _pam.transform2.position , _pam.transform2.rotation );
+        clone = Instantiate(bulletPrefab, _gunSpawm.position , _gunSpawm.rotation );
 
         
         yield return null;
