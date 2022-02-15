@@ -5,15 +5,15 @@ using UnityEngine;
 public class energyObserver : MonoBehaviour
 {
                                                          // on ground spells
-    private playerPowerShot _playerPowerShot;
-    private playerNormalShot _playerNormalShot;
-    private RealNormalShotToAir _playerNormalShotToAir;
-    private playerBasicShot _playerBasicShot;
-    private fastShotToAir _playerBasicShotToAir;
+    public playerPowerShot _playerPowerShot;
+    public playerNormalShot _playerNormalShot;
+    public RealNormalShotToAir _playerNormalShotToAir;
+    public playerBasicShot _playerBasicShot;
+    public fastShotToAir _playerBasicShotToAir;
 
                                                         // in air spells
-    private normalShotToDown _playerBasicShotToDown;
-    private normalShotToFront _playerBasicShotToFront;
+    public normalShotToDown _playerBasicShotToDown;
+    public normalShotToFront _playerBasicShotToFront;
                                                         // To check if a spell is casting
     public bool onGroundSpell;
     public bool inAirSpell;

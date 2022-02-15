@@ -33,6 +33,7 @@ public class gunShooter : MonoBehaviour
         {
             isShooting = true;
             _particle.Play();
+            cameraShake.Instance.ShakeCamera(1.5f,0.2f);
             
         }
         else
