@@ -37,7 +37,7 @@ public class powerShot : MonoBehaviour
 
 private void OnTriggerEnter2D(Collider2D other)
 {
-    
+    cameraShake.Instance.ShakeCamera(1.82f,0.17f);
     Instantiate(explosionPrefab, explosionPoint.position, explosionPoint.rotation);
     
     Destroy(this.gameObject);
