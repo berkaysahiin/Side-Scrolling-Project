@@ -32,7 +32,7 @@ public class playerFollow : MonoBehaviour
                     
                 }
             }
-            else if(player.gameObject.transform.position.x < this.gameObject.transform.position.x)
+            else if(player.gameObject.transform.position.x <= this.gameObject.transform.position.x)
             {
                  if(this.gameObject.transform.localScale.x  > 0)
                 {
