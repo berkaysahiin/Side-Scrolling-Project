@@ -21,6 +21,7 @@ public class playerAttackManager : MonoBehaviour
     public bool isEnableAirGround;
     public gunSwapper _gunSwapper;
     private energyObserver _energyObserver;
+    public float direction;
 
     private void Start() {
         _energyObserver = GetComponent<energyObserver>();
@@ -59,7 +60,17 @@ public class playerAttackManager : MonoBehaviour
             isEnableAir = false;
         }
 
-        
+
+
+
+        if(_char.m_FacingRight)
+        {
+            direction = 1;
+        }
+        else
+        {
+            direction = -1;
+        }
 
 
 

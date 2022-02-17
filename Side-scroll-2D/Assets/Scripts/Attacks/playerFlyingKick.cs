@@ -35,8 +35,6 @@ public class playerFlyingKick : MonoBehaviour
             
         }   
 
-        
-        Debug.Log(isFlying);
 
 
     _pam._anim.SetBool("isFlying",isFlying);
